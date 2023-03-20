@@ -10,4 +10,9 @@ class Item extends Model
 
     use HasFactory;
     protected $fillable = ['name', 'category_id', 'bounce', 'summary'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }

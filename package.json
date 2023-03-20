@@ -18,6 +18,7 @@
         "vue": "^3.2.41"
     },
     "dependencies": {
+        "flowbite": "^1.6.4",
         "vuetify": "^3.1.9"
     }
 }

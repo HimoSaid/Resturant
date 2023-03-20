@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('summary');
             $table->foreignId('category_id')->constrained()->cascadeOnDelete();
-            $table->integer('bounce');
+            $table->integer('bounce')->nullable();
             $table->timestamps();
         });
     }
