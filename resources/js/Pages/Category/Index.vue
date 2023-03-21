@@ -49,6 +49,9 @@ defineProps({ categories: Object });
                                         Follow
                                     </th>
                                     <th scope="col" class="px-6 py-3">
+                                        Compute Bounce
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
                                         Bounce
                                     </th>
                                     <th scope="col" class="px-6 py-3">
@@ -71,6 +74,9 @@ defineProps({ categories: Object });
                                     </th>
                                     <td class="px-6 py-4">
                                         {{ category.parent?.name }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ category.compute_bounce }}
                                     </td>
                                     <td class="px-6 py-4">
                                         {{ category.bounce }}

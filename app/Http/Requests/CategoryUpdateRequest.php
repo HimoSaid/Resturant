@@ -25,6 +25,7 @@ class CategoryUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
+
         return [
             'parent_id' => ['nullable', 'exists:categories,id', new ParentLevelRule, new MixedElementRule, new LoopRule],
             'name' => ['required', 'min:3', Rule::unique('categories')->ignore(request()->category)],

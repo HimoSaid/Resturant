@@ -19,7 +19,9 @@ class LoopRule implements ValidationRule
             $category = Category::find($value);
             $id = $category->id;
             $res = $category->notInTheParentaSeries($id);
-            if (!$res) {
+
+            if ($res) {
+
                 $fail("The category you have chosen is one of the children of this category");
             }
         }

@@ -19,6 +19,7 @@ class ItemResource extends JsonResource
             'name' => $this->name,
             'summary' => $this->summary,
             'bounce' => $this->bounce,
+            'compute_bounce' => $this->computeBounce(),
             'category' => new CategoryResource($this->whenLoaded('category')),
         ];
     }

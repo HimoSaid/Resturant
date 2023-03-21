@@ -19,6 +19,7 @@ class CategoryResource extends JsonResource
             'name' => $this->name,
             'summary' => $this->summary,
             'bounce' => $this->bounce,
+            'compute_bounce' => $this->computeBounce(),
             'parent_id' => $this->parent_id,
             'parent' => $this->when($this->parent_id, new CategoryResource($this->parent), null),
 

@@ -17,7 +17,7 @@ class ItemMixedCategoryRule implements ValidationRule
     {
         if ($value) {
             $category = Category::find($value);
-            if (count($category->subCategorires) > 0) {
+            if (count($category->subCategories) > 0) {
                 $fail("you can't add item with sub category in the same level");
             }
         }

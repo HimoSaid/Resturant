@@ -15,7 +15,7 @@
                 @input="fetchOptions"
             />
             <ul
-                v-if="showOptions"
+                v-if="showOptions && filteredOptions.length"
                 class="absolute left-0 right-0 mt-1 py-2 bg-white border rounded z-10"
             >
                 <li
@@ -25,12 +25,6 @@
                     @click="selectOption(option)"
                 >
                     {{ option[labelField] }}
-                </li>
-                <li
-                    v-if="!filteredOptions.length"
-                    class="px-2 py-1 text-gray-500"
-                >
-                    {{ noOptionsText }}
                 </li>
             </ul>
         </div>

@@ -19,13 +19,34 @@ class Category extends Model
     {
         return $this->belongsTo(Category::class, 'parent_id');
     }
-    public function subCategorires()
+    public function subCategories()
     {
         return $this->hasMany(Category::class, 'parent_id');
     }
     public function items()
     {
         return $this->hasMany(Item::class, 'category_id');
+    }
+    public function computeBounce()
+    {
+        if ($this->bounce)
+            return $this->bounce;
+        if ($this->parent_id)
+            return $this->parent->computeBounce();
+        return null;
+    }
+    public function scopeMainCategory($query)
+    {
+        $query->whereNull('parent_id');
+    }
+    public function scopeParentName($query, $name)
+    {
+        if ($name)
+            $query->whereHas('parent', function ($query) use ($name) {
+                $query->where('name', 'like', $name);
+            });
+
+        return  $query;
     }
     public function countLevel()
     {

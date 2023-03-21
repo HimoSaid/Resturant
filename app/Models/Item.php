@@ -15,4 +15,19 @@ class Item extends Model
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
+    public function computeBounce()
+    {
+        if ($this->bounce)
+            return $this->bounce;
+        if ($this->parent_id)
+            return $this->category->computeBounce();
+        return null;
+    }
+    public function scopeFilterCategoryByName($query, $name)
+    {
+        $query->whereHas('category', function ($query) use ($name) {
+            $query->where('name', 'like', $name);
+        });
+        return $query;
+    }
 }
